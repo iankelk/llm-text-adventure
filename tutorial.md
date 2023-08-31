@@ -38,11 +38,65 @@ Let's take a look at the app in action:
 
 **Step 1**
 
-The first step starts with creating a `secrets.toml` file which stores Clarifai's PAT and defines the language learning models that will be available to the chatbot.
+As with any Python project, it's always best to create a virtual environment. Here's how to create a virtual environment named `llm-text-adventure` using both `conda` and `venv` in Linux:
+
+### 1. Using `conda`:
+
+1. **Create the virtual environment:**
+   
+   ```bash
+   conda create --name llm-text-adventure python=3.8
+   ```
+
+   Note: Here, I'm specifying Python 3.8 as an example. You can replace it with your desired version.
+
+2. **Activate the virtual environment:**
+
+   ```bash
+   conda activate llm-text-adventure
+   ```
+
+3. When you're done and wish to deactivate the environment:
+
+   ```bash
+   conda deactivate
+   ```
+
+### 2. Using `venv`:
+
+1. First, ensure you have `venv` module installed. If not, install the required version of Python which includes `venv` by default. If you have Python 3.3 or newer, `venv` should be included.
+
+2. **Create the virtual environment:**
+
+   ```bash
+   python3 -m venv llm-text-adventure
+   ```
+
+   Note: You may need to replace `python3` with just `python` or another specific version, depending on your system setup.
+
+3. **Activate the virtual environment:**
+
+   ```bash
+   source llm-text-adventure/bin/activate
+   ```
+
+   When the environment is activated, you'll see the environment name (`llm-text-adventure`) at the beginning of your command prompt.
+
+4. To deactivate the virtual environment and return to the global Python environment:
+
+   ```bash
+   deactivate
+   ```
+
+That's it! Depending on your project requirements and the tools you're familiar with, you can choose either `conda` or `venv`.
 
 **Step 2**
 
-The second step entails setting up the Streamlit app (`app.py`). 
+The next step starts with creating a `secrets.toml` file which stores Clarifai's PAT and defines the language learning models that will be available to the chatbot.
+
+**Step 3**
+
+The second step entails setting up the Streamlit app (`app.py`). I've broken it up into several substeps since this is long section.
 
 1.  Importing Python libraries and modules:
     ```python
@@ -61,7 +115,7 @@ The second step entails setting up the Streamlit app (`app.py`).
     ```
     Import essential APIs and modules needed for the application like Streamlit for app interface, Clarifai for interface with Clarifai API, and Chat related APIs.
 
-2.  Set the layout:
+2.  **Set the layout:**
     ```python
     st.set_page_config(layout="wide")
     ```
