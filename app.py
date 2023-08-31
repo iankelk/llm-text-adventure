@@ -76,27 +76,30 @@ default_llm = "GPT-4"
 llms_map = {'Select an LLM':None}
 llms_map.update(select_map)
 
-if 'chosen_instruction_key' not in st.session_state.keys():
-    chosen_instruction_key = st.selectbox('Select a prompt', options=prompt_list)
-    st.session_state['chosen_instruction_key'] = chosen_instruction_key
-else:
-    chosen_instruction_key = st.session_state['chosen_instruction_key']
+chosen_instruction_key = st.selectbox(
+    'Select a prompt',
+    options=prompt_list,
+    index=(prompt_list.index(st.session_state['chosen_instruction_key']) if 'chosen_instruction_key' in st.session_state else 0)
+)
+
+# Save the chosen option into the session state
+st.session_state['chosen_instruction_key'] = chosen_instruction_key
+
+if st.session_state['chosen_instruction_key'] != "Select a prompt":
     instruction_title = instructions_data[chosen_instruction_key]['title']
     instruction = instructions_data[chosen_instruction_key]['instruction']
 
     ClarifaiStreamlitCSS.insert_default_css(st)
 
     with open('./styles.css') as f:
-      st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html=True)
-    
-    # Your code for loading PAT, getting default models and loading LLM map goes here...
+        st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html=True)
 
     if 'chosen_llm' not in st.session_state.keys():
-      chosen_llm = st.selectbox(label="Select an LLM for chatting", options=llms_map.keys())
-      if chosen_llm and llms_map[chosen_llm] is not None:
-        if 'chosen_llm' in st.session_state.keys():
-            st.session_state['chosen_llm'] = None
-        st.session_state['chosen_llm'] = llms_map[chosen_llm]
+        chosen_llm = st.selectbox(label="Select an LLM", options=llms_map.keys())
+        if chosen_llm and llms_map[chosen_llm] is not None:
+            if 'chosen_llm' in st.session_state.keys():
+                st.session_state['chosen_llm'] = None
+            st.session_state['chosen_llm'] = llms_map[chosen_llm]
 
 if "chosen_llm" in st.session_state.keys():
   cur_llm = st.session_state['chosen_llm']

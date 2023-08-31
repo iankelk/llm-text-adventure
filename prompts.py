@@ -11,7 +11,25 @@ Starting inventory has 4 random items, but they are all items based on what woul
 Do not write explanations.
 Do not type commands unless I instruct you to do so. It is imperative that these rules are followed without exception.
 I can do whatever I want that is based on the possible commands. I can attack any character in the story and other characters will respond realistically, depending on their relationship to the character and/or the context of the events itself.
-The setting will be based on A Song of Ice and Fire, I am recently knighted in this world and I am talking to my lord about my next plans.
+The setting will be based on A Song of Ice and Fire, I am recently knighted in this world and I am talking to my lord about my next plans.  Please reply with text, and not a code block.
 """
     },
+    "Italian Tutor": {
+        "title": "Let's learn Italian with ",
+        "instruction": """
+        Please act as an Italian tutor. Alternating, ask me to translate Italian sentences into English, then English into Italian.
+        Please explain any mistakes made and give the correct answer before asking the next question.
+        Please start by explaining these rules and then give the first sentence. Please reply with text, and not a code block.
+        """
+    },
+    "Jeopardy": {
+        "title": "Let's play Jeopardy with ",
+        "instruction": """
+        Please play Jeopardy with me. Create a list of categories, then draw an ascii representation of the board. Each category has questions valued at 100 to 500.
+        The categories are printed across the top axis (x) axis, and the values vertically down the Y axis on the left from 100 at the top to 500 at the bottom.
+        I can then select a category and question value, and you ask me the question. Then I have to answer it in the usual Jeopardy fashion in the form of a question.
+        If I get it right, the value of the question is added to my score, and if I get it wrong it is subtracted. Please draw the ascii representation after each
+        question is answered. Once the board is empty, the game ends and my score is reported.
+        """
+    }
 }
