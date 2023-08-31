@@ -2,3 +2,8 @@
 div.css-1yfqe4h {
   padding-bottom: 7rem;
 }
+.streamlit-chat.message-container .content p {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
