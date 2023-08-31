@@ -36,3 +36,125 @@ Let's take a look at the app in action:
 
 ![](./assets/italian.gif)
 
+**Step 1**
+
+The first step starts with creating a `secrets.toml` file which stores Clarifai's PAT and defines the language learning models that will be available to the chatbot.
+
+**Step 2**
+
+The second step entails setting up the Streamlit app (`app.py`). 
+
+1.  Importing Python libraries and modules:
+    ```python
+    import streamlit as st
+    from prompts import instructions_data
+    from clarifai_utils.modules.css import ClarifaiStreamlitCSS
+    from langchain.llms import OpenAI
+    from langchain.agents import AgentType, initialize_agent, load_tools
+    from langchain.callbacks import StreamlitCallbackHandler
+    from langchain.llms import Clarifai
+    from langchain import PromptTemplate, LLMChain
+    from langchain.chains import ConversationChain
+    from langchain.memory import ConversationBufferMemory, ChatMessageHistory
+    from langchain.schema import HumanMessage, AIMessage
+    import streamlit.components.v1 as components
+    ```
+    Import essential APIs and modules needed for the application like Streamlit for app interface, Clarifai for interface with Clarifai API, and Chat related APIs.
+
+2.  Set the layout:
+    ```python
+    st.set_page_config(layout="wide")
+    ```
+    Configure the layout of the Streamlit app to "wide" layout which allows using more horizontal space on the page.
+
+3.  Define helper functions:
+    ```python
+    # Load PAT and checks if it exists
+    def load_pat():
+      if 'CLARIFAI_PAT' not in st.secrets:
+        st.error("You need to set the CLARIFAI_PAT in the secrets.")
+        st.stop()
+      return st.secrets.CLARIFAI_PAT
+
+    # Load models and check if they exist
+    def get_default_models():
+        # check for DEFAULT_MODELS in secrets.toml and fetch all default models
+
+    # Display previous chat messages and store them into memory
+    def show_previous_chats():
+        # Rewrite past chats to Streamlit with st.chat_message and save them to memory
+    
+    # Handles the chat interaction
+    def chatbot():
+        # Function that handles the interactions between user and AI using Streamlit's chat_input and chat_message features
+    ```
+    These functions ensure we load the PAT and LLMs, keep a record of chat history, and handle interactions in the chat between the user and the AI.
+
+4.  Define prompt lists and load PAT:
+    ```
+    prompt_list = list(instructions_data.keys()) 
+    pat = load_pat()
+    models_map, select_map = get_default_models()
+    default_llm = "GPT-4"
+    llms_map = {'Select an LLM':None}
+    llms_map.update(select_map)
+    ```
+    Define the list of available prompts along with the personal authentication token (PAT) from the `secrets.toml` file. Select models and append them to the `llms_map`.
+
+5.  Prompt the user for prompt selection:
+    ```python
+    # Prompt selection
+    chosen_instruction_key = st.selectbox(
+        'Select a prompt',
+        options=prompt_list
+        ...)
+    ```
+    Use Streamlit's built-in select box widget to prompt the user to select one of the provided prompts from `prompt_list`.
+
+6.  Choose the LLM:
+    ```python
+    if 'chosen_llm' not in st.session_state.keys():
+        chosen_llm = st.selectbox(label="Select an LLM", options=llms_map.keys())
+        # select and save the LLM chosen by the user
+    ```
+    Present a choice of language learning models (LLMs) to the user to select the desired LLM.
+
+7.  Initialize the model and set the chatbot instruction:
+    ```python
+    if "chosen_llm" in st.session_state.keys():
+        # load the selected LLM or default LLM if no LLM chose
+
+    # Set the chatbot instruction
+    instruction = instructions_data[st.session_state['chosen_instruction_key']]['instruction']
+    ```
+    Load the language model selected by the user. Initialize the chat with the selected prompt.
+
+8.  Initialize the conversation chain:
+    ```python
+    # Initialize ConversationChain
+    conversation = ConversationChain(
+    prompt=prompt,
+    llm=llm,
+    verbose=True,
+    memory=ConversationBufferMemory(ai_prefix="AI Assistant", memory_key="chat_history"),
+    )
+    ```
+    Use a `ConversationChain` to handle making conversations between the user and the AI.
+
+9.  Initialize the chatbot:
+    ```python
+    if "chosen_llm" in st.session_state.keys() and "chat_history" not in st.session_state.keys():
+        # Initialize the chatbot and store the first message from the AI 
+    ```
+    Use the model to generate the first message and store it into the chat history in the session state.
+
+10. Manage Conversation and Display Messages:
+    ```python
+    if "chosen_llm" in st.session_state.keys():
+        show_previous_chats()
+        chatbot()
+    ```
+    Show all previous chats and call `chatbot()` function to continue the conversation.
+    
+That's the step-by-step walkthrough of what each section in `app.py` does.
+
