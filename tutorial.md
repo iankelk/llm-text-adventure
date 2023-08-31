@@ -100,7 +100,7 @@ Here's an example `secrets.toml`. Note that when hosting this on the Streamlit c
 
 ```
 CLARIFAI_PAT = 'YOUR_PAT_GOES_HERE'
-DEFAULT_MODELS = "GPT-3_5-turbo:openai;chat-completion, GPT-4:openai;chat-completion, claude-v2:anthropic;completion, llama2-7b-chat:meta;Llama-2, llama2-13b-chat:meta;Llama-2llama2-70b-chat:meta;Llama-2"
+DEFAULT_MODELS = "GPT-3_5-turbo:openai;chat-completion, GPT-4:openai;chat-completion, claude-v2:anthropic;completion, llama2-7b-chat:meta;Llama-2, llama2-13b-chat:meta;Llama-2, llama2-70b-chat:meta;Llama-2"
 ```
 
 On Streamlit's cloud, this would appear like this:
