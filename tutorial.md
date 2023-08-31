@@ -36,7 +36,7 @@ Let's take a look at the app in action:
 
 ![](./assets/italian.gif)
 
-**Step 1**
+**Step A**
 
 As with any Python project, it's always best to create a virtual environment. Here's how to create a virtual environment named `llm-text-adventure` using both `conda` and `venv` in Linux:
 
@@ -90,11 +90,25 @@ As with any Python project, it's always best to create a virtual environment. He
 
 That's it! Depending on your project requirements and the tools you're familiar with, you can choose either `conda` or `venv`.
 
-**Step 2**
+**Step B**
 
 The next step starts with creating a `secrets.toml` file which stores Clarifai's PAT and defines the language learning models that will be available to the chatbot.
 
-**Step 3**
+This file will hold both the PAT (personal authotization token) for your app, which you would never want to publicly share. The other line is our default models, which isn't an important secret but determines which LLMs you'll offer.
+
+Here's an example `secrets.toml`. Note that when hosting this on the Streamlit cloud, you need to go into your app settings -> secrets to add these lines so that the Streamlit servers can use the information.
+
+```
+CLARIFAI_PAT = 'YOUR_PAT_GOES_HERE'
+DEFAULT_MODELS = "GPT-3_5-turbo:openai;chat-completion, GPT-4:openai;chat-completion, claude-v2:anthropic;completion, llama2-70b-chat:meta;Llama-2"
+```
+
+On Streamlit's cloud, this would appear like this:
+
+![](./assets/streamlit-secrets.jpg)
+
+
+**Step C**
 
 The second step entails setting up the Streamlit app (`app.py`). I've broken it up into several substeps since this is long section.
 
