@@ -21,9 +21,13 @@ It can seem intimidating to have to create an entirely new Streamlit app every t
 In this post, you’ll learn how to build an AI-powered Chatbot:
 
 Step 1: Create the environment to work with Streamlit locally
+
 Step 2: Create the Secrets File and define the Prompt
+
 Step 3: Set Up the Streamlit App
+
 Step 4: Deploy the app on Streamlit's cloud.
+
 
 ## App overview / Technical details
 The application integrates the Clarifai API with a Streamlit interface. Clarifai is known for its superb artificial intelligence models, while Streamlit provides an elegant framework for user interaction. Using a secrets.toml file for secure handling of the Clarifai Personal Authentication Token (PAT) and additional settings, the application allows users to interact with different Language Learning Models (LLMs) using a chat interface. The secret sauce however, is the inclusion of a separate `prompts.py` file which allows for different behaviour of the application purely based on the prompt.
