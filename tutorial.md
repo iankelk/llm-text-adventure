@@ -96,11 +96,11 @@ The next step starts with creating a `secrets.toml` file which stores Clarifai's
 
 This file will hold both the PAT (personal authotization token) for your app, which you would never want to publicly share. The other line is our default models, which isn't an important secret but determines which LLMs you'll offer.
 
-Here's an example `secrets.toml`. Note that when hosting this on the Streamlit cloud, you need to go into your app settings -> secrets to add these lines so that the Streamlit servers can use the information.
+Here's an example `secrets.toml`. Note that when hosting this on the Streamlit cloud, you need to go into your app settings -> secrets to add these lines so that the Streamlit servers can use the information. The following `DEFAULT_MODELS` provides GPT-3.5 and GPT-4, Claude v2, and the three sizes of Llama2 trained for instructions.
 
 ```
 CLARIFAI_PAT = 'YOUR_PAT_GOES_HERE'
-DEFAULT_MODELS = "GPT-3_5-turbo:openai;chat-completion, GPT-4:openai;chat-completion, claude-v2:anthropic;completion, llama2-70b-chat:meta;Llama-2"
+DEFAULT_MODELS = "GPT-3_5-turbo:openai;chat-completion, GPT-4:openai;chat-completion, claude-v2:anthropic;completion, llama2-7b-chat:meta;Llama-2, llama2-13b-chat:meta;Llama-2llama2-70b-chat:meta;Llama-2"
 ```
 
 On Streamlit's cloud, this would appear like this:
