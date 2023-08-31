@@ -139,7 +139,7 @@ def chatbot():
         # llama response format if different. It seems like human-ai chat examples are appended after the actual response.
         if st.session_state['chosen_llm'].find('lama') > -1:
           response = response.split('Human:',1)[0]
-        st.write(response)
+        st.text(response)
         message = {"role": "assistant", "content": response}
         st.session_state['chat_history'].append(message)
     st.write("\n***\n")
