@@ -36,7 +36,7 @@ Let's take a look at the app in action:
 
 ![](./assets/italian.gif)
 
-**Step A**
+## **Step A**
 
 As with any Python project, it's always best to create a virtual environment. Here's how to create a virtual environment named `llm-text-adventure` using both `conda` and `venv` in Linux:
 
@@ -90,7 +90,7 @@ As with any Python project, it's always best to create a virtual environment. He
 
 That's it! Depending on your project requirements and the tools you're familiar with, you can choose either `conda` or `venv`.
 
-**Step B**
+## **Step B**
 
 The next step starts with creating a `secrets.toml` file which stores Clarifai's PAT and defines the language learning models that will be available to the chatbot.
 
@@ -108,7 +108,7 @@ On Streamlit's cloud, this would appear like this:
 ![](./assets/streamlit-secrets.jpg)
 
 
-**Step C**
+## **Step C**
 
 The second step entails setting up the Streamlit app (`app.py`). I've broken it up into several substeps since this is long section.
 
@@ -384,7 +384,7 @@ st.markdown(
 )
 ```
 
-**Step D**
+## **Step D**
 
 This is the fun part! All the other code in this tutorial already works fine out of the box, and the only thing you need to change to get different behaviour is the `prompts.py` file:
 
