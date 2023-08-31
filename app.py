@@ -156,8 +156,10 @@ st.markdown(
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
 }
+.output {
+     white-space: pre-wrap !important;
+    }
 </style>
 """,
     unsafe_allow_html=True,
 )
-
