@@ -34,3 +34,5 @@ The application integrates the Clarifai API with a Streamlit interface. Clarifai
 
 Let's take a look at the app in action:
 
+![](./assets/italian.gif)
+
