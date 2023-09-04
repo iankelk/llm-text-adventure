@@ -404,4 +404,4 @@ This is the fun part! All the other code in this tutorial already works fine out
 ![](./assets/jeopardy.jpg)
 
    
-Pretty cool right? All running the same code, and the only change was adding a prompt to select from in the `prompts.py` file.
+Pretty cool right? All running the same code! You can add new applications just by adding new, plain English options to the `prompts.py` file, and experiment away!

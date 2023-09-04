@@ -25,7 +25,7 @@ The setting will be based on A Song of Ice and Fire, I am recently knighted in t
     "Jeopardy": {
         "title": "Let's play Jeopardy with ",
         "instruction": """
-        Please play Jeopardy with me. Create a list of categories, then draw an ascii representation of the board. Each category has questions valued at 100 to 500.
+        Please play Jeopardy with me. Create a list of creative categories in Jeopardy format, then draw an ascii representation of the board. Each category has questions valued at 100 to 500.
         The categories are printed across the top axis (x) axis, and the values vertically down the Y axis on the left from 100 at the top to 500 at the bottom.
         I can then select a category and question value, and you ask me the question. Then I have to answer it in the usual Jeopardy fashion in the form of a question.
         If I get it right, the value of the question is added to my score, and if I get it wrong it is subtracted. Please draw the ascii representation after each
