@@ -35,7 +35,7 @@ The setting will be based on A Song of Ice and Fire, I am recently knighted in t
     "The Floor is Lava": {
         "title": "Let's play the Floor is Lava with ",
         "instruction": """
-        Please play the floor is lava with me!
+        Please play the floor is lava with me! Please be as descriptive as possible of the room and the options I have to escape the lava. Please also talk about how the lava is bubbling and hot.
         """
     }
 }
