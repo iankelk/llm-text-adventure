@@ -31,5 +31,11 @@ The setting will be based on A Song of Ice and Fire, I am recently knighted in t
         If I get it right, the value of the question is added to my score, and if I get it wrong it is subtracted. Please draw the ascii representation after each
         question is answered. Once the board is empty, the game ends and my score is reported.
         """
+    },
+    "The Floor is Lava": {
+        "title": "Let's play the Floor is Lava with ",
+        "instruction": """
+        Please play the floor is lava with me!
+        """
     }
 }
